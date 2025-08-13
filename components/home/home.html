@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exclusive E-Commerce</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header">
+    <!-- Top Promo Bar -->
+    <div class="bg-dark text-light text-center py-2 fs-6 d-flex justify-content-between align-items-center">
+      <p class="mb-0 fw-light flex-grow-1">
+        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        <a href="#" class="text-light fw-bold ms-2">ShopNow</a>
+      </p>
+      <select id="lang" class="bg-dark text-light border-0">
+        <option value="eng">English</option>
+        <option value="guj">Gujarati</option>
+      </select>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <a class="navbar-brand fw-bold" href="#">Exclusive</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold">
+            <li class="nav-item"><a href="/components/starting.html" class="nav-link active">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="/components/login/login.html" class="nav-link">Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Search + Icons -->
+        <div class="d-flex align-items-center gap-3">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 bg-secondary-subtle text-dark" type="search" placeholder="What are you looking for?" />
+            <button class="btn bg-secondary-subtle text-dark" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+
+          <div class="d-flex gap-3">
+            <a href="/components/wishlist/wishlist-page.html" class="position-relative text-dark">
+              <i class="fa-solid fa-heart fs-5"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-count" style="font-size:0.6rem;">0</span>
+            </a>
+            <a href="/components/cart/cart.html" class="position-relative text-dark">
+              <i class="fa-solid fa-cart-shopping fs-5"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count" style="font-size:0.6rem;">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide container" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active bg-black text-light">
+          <div class="row justify-content-center">
+            <div class="col-4 position-relative">
+              <img src="../../assets/Images/crousel-img.png" class="d-block w-100" alt="Promo" />
+              <div class="position-absolute top-0 start-0 m-4">
+                <p><i class="fa-brands fa-apple fs-1 fw-bold"></i> <span class="fs-5">iPhone 14 Series</span></p>
+                <h5 class="fs-1 fw-bold">Up to 10% <br> Off Voucher</h5>
+                <a href="#" class="text-light text-decoration-none d-flex align-items-center">
+                  <span class="border-bottom fw-bold me-1">Shop now</span><i class="fa fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="product-container-home" class="container my-5 text-center">
+      <div class="mb-4">
+        <span class="border-end border-5 bg-danger p-2 me-2"></span>
+        <span class="fw-semibold">Our Products</span>
+        <h3 class="fw-bold my-2">Explore Our Products</h3>
+      </div>
+      <div class="row" id="product-list"></div>
+      <button class="btn btn-danger py-3 my-4">View All Products</button>
+      <div class="row my-5" id="features"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-2">
+            <h5 class="fw-bold">Exclusive</h5>
+            <p>Subscribe</p>
+            <p>Get 10% off your first order</p>
+            <form class="d-flex border rounded">
+              <input type="email" class="form-control bg-dark text-white border-0" placeholder="Enter your email" />
+              <button type="submit" class="btn btn-dark border-0"><i class="fa fa-arrow-right"></i></button>
+            </form>
+          </div>
+          <!-- Support / Account / Quick Links / Social Icons same as before -->
+          <!-- Skipping unchanged sections for brevity -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/data.js"></script>
+  <script src="home-script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

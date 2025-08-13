@@ -1,0 +1,108 @@
+
+
+<!-- top header  -->
+<div class="bg-dark text-light row py-2 text-center fs-6">
+  <p class="col-9 m-0 text-center fw-light">
+    Summer Sale For All Swim Suits And Free Express Delivery-OFF 50%!
+    
+    <a class="text-light fw-bold px-2"> ShopNow </a>
+  </p>
+  <span class="col-1"></span>
+  <span class="col-2">
+    <select name="lang" id="lang" class="bg-dark text-light">
+      <option value="eng">English</option>
+      <option value="guj">Gujrati</option>
+    </select>
+  </span>
+  
+</div>
+
+<!-- main header  -->
+
+<nav class="navbar navbar-expand-lg bg-transparent row border-bottom">
+  <div class="d-flex justify-content-between px-5">
+    <a class="navbar-brand col-1 fw-bold text-center" href="/components/home/home.html">Exclusive</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col-2"></div>
+    <div
+      class="collapse navbar-collapse fw-bold d-flex justify-content-center col-4"
+      id="navbarSupportedContent"
+    >
+      <ul
+        class="navbar-nav d-flex justify-content-evenly w-100 aliit mb-2 mb-lg-0"
+      >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/components/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" onclick="showContact()">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" onclick="showAbout()">About</a>
+        </li>
+         <li class="nav-item" id="auth-nav-item">
+          <a class="nav-link active" aria-current="page" href="/components/login/login.html" id="auth-link">Sign up</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-4 d-flex justify-content-center align-items-center">
+      <form class="d-flex me-3 col-7" role="search">
+        <input
+          class="form-control bg-secondary-subtle text-black"
+          type="search"
+          placeholder="What are you looking for ?"
+          aria-label="Search"
+        />
+        <button class="btn rounded-3 bg-secondary-subtle text-black" type="submit">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <!-- Icons: Wishlist and Cart -->
+      <div class="d-flex align-items-center gap-3 col-4 justify-content-center">
+        <a href="/components/wishlist/wishlist-page.html" class="text-dark position-relative" title="Wishlist">
+          <i class="fa-solid fa-heart fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-count" style="font-size: 0.6rem;">
+            0
+          </span>
+        </a>
+        <a href="/components/cart/cart.html" class="text-dark position-relative" title="Cart">
+          <i class="fa-solid fa-cart-shopping fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count" style="font-size: 0.6rem;">
+            0
+          </span>
+        </a>
+      </div>
+
+      <!-- Profile Icon -->
+      <div class="dropdown ms-3">
+        <a href="#" class="text-dark dropdown-toggle text-decoration-none" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Profile">
+          <i class="fa-solid fa-user fs-5"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+          <li><a class="dropdown-item" href="/components/edit-profile/edit-profile.html">
+            <i class="fa-solid fa-user-edit me-2"></i>Edit Profile
+          </a></li>
+          <li><a class="dropdown-item" href="#" onclick="showOrders()">
+            <i class="fa-solid fa-shopping-bag me-2"></i>My Orders
+          </a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="#" onclick="logout()" id="logout-link" style="display: none;">
+            <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

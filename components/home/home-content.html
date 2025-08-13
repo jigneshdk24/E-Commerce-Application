@@ -1,0 +1,87 @@
+<!-- crousel -->
+<div
+  id="carouselExampleCaptions"
+  class="carousel slide container"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active bg-black">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <img
+            src="../assets/Images/crousel-img.png"
+            class="d-block w-100"
+            alt="..."
+          />
+          <div class="position-absolute top-0 start-0 m-5 text-light">
+            <p>
+              <i class="fa-brands fa-apple fw-bolder fs-1"></i
+              ><span class="fs-5">iPhone 14 Series</span>
+            </p>
+            <h5 class="fs-1 fw-bold">
+              Up to 10%
+              <p></p>
+              off Voucher
+            </h5>
+            <p></p>
+            <a
+              href="#"
+              class="text-decoration-none text-light d-flex align-items-center"
+              ><span
+                class="border-bottom text-decoration-none text-light me-1 fw-bold"
+                >Shop now</span
+              ><i class="fa fa-arrow-right" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- our Products  -->
+
+<div id="product-container-home" class="container my-5">
+  <div
+    id="our-products"
+    class="d-flex flex-column justify-content-center align-items-center my-3"
+  >
+    <div class="me-auto">
+      <span class="border-end border-5 bg-danger p-2 me-2"></span>
+      <span class="fw-semibold">Our Products</span>
+      <p></p>
+      <p class="fw-bold fs-3">Explore Our Products</p>
+    </div>
+
+    <div class="my-2">
+      <div class="row" id="product-list"></div>
+    </div>
+
+    <button class="btn btn-danger py-3" onclick="showAllProducts()">View All Product</button>
+
+    <div class="row text-center my-5" id="features"></div>
+  </div>
+</div>
