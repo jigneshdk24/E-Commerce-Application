@@ -1,5 +1,5 @@
-// Centralized data for the e-commerce application
-// This file contains all product and feature data used across components
+
+
 
 const PRODUCTS_DATA = [
   {
@@ -8,7 +8,7 @@ const PRODUCTS_DATA = [
     price: 99.99,
     rating: 4.5,
     reviews: 128,
-    image: "../../assets/Images/gamepad.png"
+    image: "../../assets/Images/game.png"
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const PRODUCTS_DATA = [
     price: 199.99,
     rating: 4.3,
     reviews: 89,
-    image: "../../assets/Images/laptop.png"
+    image: "../../assets/Images/mobile.png"
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const PRODUCTS_DATA = [
     price: 29.99,
     rating: 4.2,
     reviews: 203,
-    image: "../../assets/Images/jacket.png"
+    image: "../../assets/Images/wears.png"
   },
   {
     id: 5,
@@ -40,7 +40,7 @@ const PRODUCTS_DATA = [
     price: 19.99,
     rating: 4.6,
     reviews: 312,
-    image: "../../assets/Images/shoes.png"
+    image: "../../assets/Images/footwear.png"
   },
   {
     id: 6,
@@ -48,7 +48,7 @@ const PRODUCTS_DATA = [
     price: 15.99,
     rating: 4.4,
     reviews: 98,
-    image: "../../assets/Images/kids-car.png"
+    image: "../../assets/Images/cars.png"
   },
   {
     id: 7,
@@ -56,7 +56,7 @@ const PRODUCTS_DATA = [
     price: 79.99,
     rating: 4.1,
     reviews: 167,
-    image: "../../assets/Images/skincare.png"
+    image: "../../assets/Images/skin.png"
   },
   {
     id: 8,
@@ -87,6 +87,6 @@ const FEATURES_DATA = [
 ];
 
 
-// Make data available globally
+
 window.PRODUCTS_DATA = PRODUCTS_DATA;
 window.FEATURES_DATA = FEATURES_DATA;

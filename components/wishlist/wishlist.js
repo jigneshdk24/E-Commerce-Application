@@ -1,4 +1,4 @@
-// Wishlist page logic using PRODUCTS_DATA from assets/js/data.js
+// Wishlist page logic using PRODUCTS_DATA from assets/js/products.js
 
 // Generate star rating HTML
 function createStars(ratingValue) {
@@ -11,7 +11,7 @@ function createStars(ratingValue) {
   if (halfStar)
     starHTML += '<i class="fa-solid fa-star-half-stroke text-warning"></i>';
   for (let i = fullStars + (halfStar ? 1 : 0); i < 5; i++)
-    starHTML += '<i class="fa-regular fa-star text-secondary"></i>
+    starHTML += '<i class="fa-regular fa-star text-secondary"></i>'
 
   return starHTML;
 }
@@ -64,7 +64,7 @@ function displayWishlist() {
               <div class="card-img-top p-4 bg-secondary-subtle d-flex justify-content-center align-items-center" style="min-height: 220px;">
                 <img src="${item.image}" alt="${item.title}" class="img-fluid" style="max-height: 160px; object-fit: contain;">
               </div>
-              <button class="btn btn-dark mt-auto"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
+              <button class="btn btn-dark mt-auto" onclick="addToCart(${item.id})"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
               <div class="card-body d-flex flex-column">
                 <h6 class="card-title">${item.title}</h6>
                 <div class="d-flex align-items-center mb-2">
@@ -98,14 +98,14 @@ function displayRecommendations(wishlistIds) {
     <div class="col-md-3 col-sm-6 d-flex">
       <div class="card border-0 flex-fill position-relative h-100">
         <div class="card-img-top p-4 bg-secondary-subtle d-flex justify-content-center align-items-center" style="min-height: 220px;">
-          <button class="btn btn-outline-secondary position-absolute top-0 end-0 m-2 rounded-5 bg-white border-0">
-            <i class="fa-regular fa-eye text-secondary"></i>
+          <button class="btn btn-outline-secondary position-absolute top-0 end-0 m-2 rounded-5 bg-white border-0" onclick="addToWishlist(${prod.id})" title="Add to Wishlist">
+            <i class="fa-regular fa-heart text-secondary"></i>
           </button>
           <img src="${prod.image}" alt="${
         prod.title
       }" class="img-fluid" style="max-height: 160px; object-fit: contain;">
         </div>
-        <button class="btn btn-dark mt-auto"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
+        <button class="btn btn-dark mt-auto" onclick="addToCart(${prod.id})"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
         <div class="card-body d-flex flex-column">
           <h6 class="card-title">${prod.title}</h6>
           <div class="d-flex align-items-center mb-2">
@@ -130,6 +130,18 @@ function addToWishlist(productId) {
     ids.push(productId);
     saveWishlist(ids);
     displayWishlist();
+    updateHeaderCount();
+    
+    // Show success message
+    const btn = event.target.closest('button');
+    const originalIcon = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-heart text-danger"></i>';
+    btn.classList.replace('btn-outline-secondary', 'btn-danger');
+    
+    setTimeout(() => {
+      btn.innerHTML = originalIcon;
+      btn.classList.replace('btn-danger', 'btn-outline-secondary');
+    }, 1500);
   }
 }
 
@@ -138,13 +150,128 @@ function removeFromWishlist(productId) {
   const updatedIds = fetchWishlist().filter((id) => id !== productId);
   saveWishlist(updatedIds);
   displayWishlist();
+  updateHeaderCount();
+}
+
+// Add product to cart
+function addToCart(productId) {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const existing = cart.find((item) => item.id === productId);
+  if (existing) {
+    existing.qty++;
+  } else {
+    const product = PRODUCTS_DATA.find((p) => p.id === productId);
+    if (product) {
+      cart.push({ ...product, qty: 1 });
+    }
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
+  // Show success message
+  const btn = event.target.closest('button');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<i class="fa-solid fa-check me-2"></i>Added!';
+  btn.classList.replace('btn-dark', 'btn-success');
+  
+  setTimeout(() => {
+    btn.innerHTML = originalText;
+    btn.classList.replace('btn-success', 'btn-dark');
+  }, 1500);
+}
+
+// Move all wishlist items to cart
+function moveAllToCart() {
+  const wishlistIds = fetchWishlist();
+  if (wishlistIds.length === 0) {
+    alert('Your wishlist is empty!');
+    return;
+  }
+  
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  wishlistIds.forEach(id => {
+    const product = PRODUCTS_DATA.find((p) => p.id === id);
+    if (product) {
+      const existing = cart.find((item) => item.id === id);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+    }
+  });
+  
+  localStorage.setItem("cart", JSON.stringify(cart));
+  
+  // Clear wishlist
+  saveWishlist([]);
+  
+  // Show success message
+  alert(`Moved ${wishlistIds.length} items to cart!`);
+  
+  // Refresh display
+  displayWishlist();
+  updateHeaderCount();
+}
+
+// Update header wishlist count
+function updateHeaderCount() {
+  const wishlistCount = fetchWishlist().length;
+  
+  // Try to update the header count if it exists
+  const headerCount = document.querySelector('#header .wishlist-count');
+  if (headerCount) {
+    headerCount.textContent = wishlistCount;
+    headerCount.style.display = wishlistCount ? "block" : "none";
+  }
+  
+  // Also update the local count on the page
+  const localCount = document.getElementById('wishlist-count');
+  if (localCount) {
+    localCount.textContent = wishlistCount;
+  }
+}
+
+// Wait for header to load before initializing
+function waitForHeader() {
+  return new Promise((resolve) => {
+    const checkHeader = () => {
+      const header = document.getElementById('header');
+      if (header && header.innerHTML.trim() !== '') {
+        resolve();
+      } else {
+        setTimeout(checkHeader, 100);
+      }
+    };
+    checkHeader();
+  });
 }
 
 // Expose functions globally
 window.addToWishlist = addToWishlist;
 window.removeFromWishlist = removeFromWishlist;
+window.addToCart = addToCart;
+window.moveAllToCart = moveAllToCart;
+
+// Initialize wishlist after header loads
+async function initializeWishlist() {
+  try {
+    // Wait for header to load
+    await waitForHeader();
+    
+    // Small delay to ensure everything is ready
+    setTimeout(() => {
+      displayWishlist();
+      updateHeaderCount();
+    }, 200);
+  } catch (error) {
+    console.error('Error initializing wishlist:', error);
+    // Fallback: initialize without waiting for header
+    displayWishlist();
+    updateHeaderCount();
+  }
+}
 
 // Initialize wishlist on DOM ready
 document.addEventListener("DOMContentLoaded", () => {
-  displayWishlist();
+  initializeWishlist();
 });

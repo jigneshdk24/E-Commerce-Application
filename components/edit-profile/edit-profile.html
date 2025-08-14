@@ -1,344 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ecommerce Website</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Account - Edit Profile | Exclusive</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+  <!-- Header -->
+  <div id="header">
+    <!-- top header  -->
+    <div class="bg-dark text-light row py-2 text-center fs-6">
+      <p class="col-9 m-0 text-center fw-light">
+        Summer Sale For All Swim Suits And Free Express Delivery-OFF 50%!
+        <a class="text-light fw-bold px-2"> ShopNow </a>
+      </p>
+      <span class="col-1"></span>
+      <span class="col-2">
+        <select name="lang" id="lang" class="bg-dark text-light">
+          <option value="eng">English</option>
+          <option value="guj">Gujrati</option>
+        </select>
+      </span>
+    </div>
+
     <!-- main header  -->
-    <div id="header">
-      <!-- top header  -->
-      <div class="bg-dark text-light row py-2 text-center fs-6">
-        <p class="col-9 m-0 text-center fw-light">
-          Summer Sale For All Swim Suits And Free Express Delivery-OFF 50%!
-
-          <a class="text-light fw-bold px-2"> ShopNow </a>
-        </p>
-        <span class="col-1"></span>
-        <span class="col-2">
-          <select name="lang" id="lang" class="bg-dark text-light">
-            <option value="eng">English</option>
-            <option value="guj">Gujrati</option>
-          </select>
-        </span>
-      </div>
-
-      <!-- main header  -->
-
-      <nav class="navbar navbar-expand-lg bg-transparent row border-bottom">
-        <div class="d-flex justify-content-between px-5">
-          <a class="navbar-brand col-1 fw-bold text-center" href="#"
-            >Exclusive</a
+    <nav class="navbar navbar-expand-lg bg-transparent row border-bottom">
+      <div class="d-flex justify-content-between px-5">
+        <a class="navbar-brand col-1 fw-bold text-center" href="../home/home.html">Exclusive</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col-2"></div>
+        <div
+          class="collapse navbar-collapse fw-bold d-flex justify-content-center col-4"
+          id="navbarSupportedContent"
+        >
+          <ul
+            class="navbar-nav d-flex justify-content-evenly w-100 aliit mb-2 mb-lg-0"
           >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="col-2"></div>
-          <div
-            class="collapse navbar-collapse fw-bold d-flex justify-content-center col-4"
-            id="navbarSupportedContent"
-          >
-            <ul
-              class="navbar-nav d-flex justify-content-evenly w-100 aliit mb-2 mb-lg-0"
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../home/home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../login/login.html">Sign up</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-2"></div>
+        <div class="col-3">
+          <form class="d-flex" role="search">
+            <input
+              class="form-control bg-secondary-subtle text-black"
+              type="search"
+              placeholder="What are you looking for ?"
+              aria-label="Search"
+            />
+            <button
+              class="btn rounded-3 bg-secondary-subtle text-black"
+              type="submit"
             >
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/components/starting.html"
-                  >Home</a
-                >
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Wishlist and Cart Icons -->
+        <div class="d-flex align-items-center gap-3 col-2 justify-content-center">
+          <a href="../wishlist/wishlist-page.html" class="text-dark text-decoration-none position-relative">
+            <i class="fa-solid fa-heart fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-count" style="font-size: 0.6rem">
+              0
+            </span>
+          </a>
+          <a href="../cart/cart.html" class="text-dark text-decoration-none position-relative">
+            <i class="fa-solid fa-cart-shopping fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count" style="font-size: 0.6rem">
+              0
+            </span>
+          </a>
+        </div>
+
+        <!-- Profile Icon -->
+        <div class="dropdown ms-3">
+          <a href="#" class="text-dark dropdown-toggle text-decoration-none" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Profile">
+            <i class="fa-solid fa-user fs-5"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="edit-profile.html">
+              <i class="fa-solid fa-user-edit me-2"></i>Edit Profile
+            </a></li>
+            <li><a class="dropdown-item" href="#" onclick="showOrders()">
+              <i class="fa-solid fa-shopping-bag me-2"></i>My Orders
+            </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#" onclick="logout()" id="logout-link" style="display: none;">
+              <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Welcome Message -->
+  <div class="container mt-3">
+    <div class="d-flex justify-content-end">
+      <small class="text-muted">Welcome! <span id="welcome-user">Md Rimel</span></small>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="container mt-2">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../home/home.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">My Account</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container my-5">
+    <div class="row">
+      <!-- Left Sidebar - Manage My Account -->
+      <div class="col-lg-3">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold mb-4">Manage My Account</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a href="edit-profile.html" class="text-decoration-none text-danger fw-semibold">
+                  <i class="fa-solid fa-user-edit me-2"></i>My Profile
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Contact</a
-                >
+              <li class="mb-3">
+                <a href="#" class="text-decoration-none text-dark">
+                  <i class="fa-solid fa-address-book me-2"></i>Address Book
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >About</a
-                >
+              <li class="mb-3">
+                <a href="#" class="text-decoration-none text-dark">
+                  <i class="fa-solid fa-credit-card me-2"></i>My Payment Options
+                </a>
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/components/login/login.html"
-                  >Sign up
+              <li class="mb-3">
+                <a href="#" class="text-decoration-none text-dark">
+                  <i class="fa-solid fa-shopping-bag me-2"></i>My Orders
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="#" class="text-decoration-none text-dark">
+                  <i class="fa-solid fa-undo me-2"></i>My Returns
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="#" class="text-decoration-none text-dark">
+                  <i class="fa-solid fa-times-circle me-2"></i>My Cancellations
+                </a>
+              </li>
+              <li class="mb-3">
+                <a href="../wishlist/wishlist-page.html" class="text-decoration-none text-dark">
+                  <i class="fa-solid fa-heart me-2"></i>My WishList
                 </a>
               </li>
             </ul>
           </div>
+        </div>
+      </div>
 
-          <div class="col-2"></div>
-          <div class="col-3">
-            <form class="d-flex" role="search">
-              <input
-                class="form-control bg-secondary-subtle text-black"
-                type="search"
-                placeholder="What are you looking for ?"
-                aria-label="Search"
-              />
-              <button
-                class="btn rounded-3 bg-secondary-subtle text-black"
-                type="submit"
-              >
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              </button>
+      <!-- Right Main Section - Edit Your Profile -->
+      <div class="col-lg-9">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h4 class="text-danger fw-bold mb-4">Edit Your Profile</h4>
+            
+            <form id="profile-form">
+              <!-- Personal Information -->
+              <div class="mb-4">
+                <h6 class="fw-semibold mb-3">Personal Information</h6>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="firstName" class="form-label fw-semibold">First Name</label>
+                    <input type="text" class="form-control" id="firstName" value="Md" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lastName" class="form-label fw-semibold">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" value="Rimel" required>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold">Email</label>
+                  <input type="email" class="form-control" id="email" value="rimell111@gmail.com" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="address" class="form-label fw-semibold">Address</label>
+                  <input type="text" class="form-control" id="address" value="Kingston, 5236, United State" required>
+                </div>
+              </div>
+              
+              <!-- Password Changes -->
+              <div class="mb-4">
+                <h6 class="fw-semibold mb-3">Password Changes</h6>
+                <div class="mb-3">
+                  <label for="currentPassword" class="form-label fw-semibold">Current Password</label>
+                  <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                </div>
+                
+                <div class="mb-3">
+                  <label for="newPassword" class="form-label fw-semibold">New Password</label>
+                  <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                </div>
+                
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label fw-semibold">Confirm New Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                </div>
+              </div>
+              
+              <!-- Action Buttons -->
+              <div class="d-flex gap-3">
+                <button type="button" class="btn btn-outline-secondary px-4" onclick="cancelChanges()">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-danger px-4">
+                  Save Changes
+                </button>
+              </div>
             </form>
           </div>
         </div>
-      </nav>
-    </div>
-    <p></p>
-
-    <!-- main body  -->
-    <div id="main-content">
-      <!-- crousel -->
-    
-
-<div class="container p-5">
-  <form class="row fw-medium shadow-lg p-3 rounded-2">
-    <p class="fs-4 text-danger">Edit Your Profile</p>
-
-    <!-- first name  -->
-    <div class="col-md-6">
-      <label for="first_name" class="form-label">First Name</label>
-      <input
-        type="text"
-        name="first_name"
-        id="first_name"
-        placeholder="John"
-        class="form-control"
-      />
-    </div>
-
-    <!-- last name  -->
-    <div class="col-md-6">
-      <label for="last_name" class="form-label">Last Name</label>
-      <input
-        type="text"
-        name="last_name"
-        id="last_name"
-        placeholder="Doe"
-        class="form-control"
-      />
-    </div>
-
-    <!-- user email -->
-    <div class="col-md-6">
-      <label for="user_email" class="form-label">Email</label>
-      <input
-        type="text"
-        name="user_email"
-        id="user_email"
-        placeholder="example@gmail.com"
-        class="form-control"
-      />
-    </div>
-
-    <!-- user address -->
-    <div class="col-md-6">
-      <label for="user_address" class="form-label">Address</label>
-      <input
-        type="text"
-        name="user_address"
-        id="user_address"
-        placeholder="thaltej, Ahmedabad -380001"
-        class="form-control"
-      >
-      </input>
-    </div>
-
-    <!-- password  -->
-    <div class="col-md-12">
-      <label for="password_changes" class="form-label">Password Changes</label>
-      <input
-        type="text"
-        name="currunt_password"
-        id="currunt_password"
-        placeholder="Currunt Password"
-        class="form-control mb-2"
-      />
-      <input
-        type="text"
-        name="new_password"
-        id="new_password"
-        placeholder="New password"
-        class="form-control mb-2"
-      />
-      <input
-        type="text"
-        name="conf_password"
-        id="conf_password"
-        placeholder="Confirm Password"
-        class="form-control mb-2"
-      />
-    </div>
-
-    <div class="d-flex justify-content-end gap-3">
-      <button class="btn">Cancel</button>
-      <button class="btn btn-danger rounded-1">Save Changes</button>
-    </div>
-  </form>
-</div>
-
-    </div>
-    </body>
-
-    <!-- footer -->
-    <div id="footer">
-      <!-- footer  -->
-
-      <div class="bg-dark text-white py-3">
-        <div class="container">
-          <div class="row gy-4">
-            <div class="col-md-2">
-              <h5 class="fw-bold">Exclusive</h5>
-              <p class="mb-1">Subscribe</p>
-              <p class="mb-3">Get 10% off your first order</p>
-              <form class="d-flex border rounded">
-                <input
-                  type="email"
-                  class="form-control bg-dark text-white border-0"
-                  placeholder="Enter your email"
-                />
-                <button type="submit" class="btn btn-dark border-0">
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </button>
-              </form>
-            </div>
-
-            <div class="col-md-3">
-              <h5 class="fw-bold">Support</h5>
-              <p class="mb-2">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
-              <p class="mb-1">exclusive@gmail.com</p>
-              <p class="mb-0">+88015-88888-9999</p>
-            </div>
-
-            <div class="col-md-2">
-              <h5 class="fw-bold">Account</h5>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >My Account</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Login / Register</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none">Cart</a>
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Wishlist</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none">Shop</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-md-2">
-              <h5 class="fw-bold">Quick Link</h5>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Privacy Policy</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Terms Of Use</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none">FAQ</a>
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <h5 class="fw-bold">Download App</h5>
-              <small class="mb-2">Save $3 with App New User Only</small>
-              <div class="d-flex align-items-center mb-3">
-                <div>
-                  <img
-                    src="../../assets/Images/qrcode.png"
-                    alt="QR Code"
-                    class="img-fluid me-2"
-                    style="max-width: 80px"
-                  />
-                </div>
-                <div class="d-flex flex-column">
-                  <img
-                    src="../../assets/Images/googleplay.png"
-                    alt="Google Play"
-                    class="img-fluid mb-2 h-auto w-75"
-                  />
-                  <img
-                    src="../../assets/Images/appstore.png"
-                    alt="App Store"
-                    class="img-fluid h-auto w-75"
-                  />
-                </div>
-              </div>
-              <div class="d-flex justify-content-evenly">
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="border-bottom border-secondary my-4"></div>
-
-          <p class="text-center text-secondary mb-0">
-            &copy; Copyright Rimel 2022. All rights reserved
-          </p>
-        </div>
       </div>
     </div>
+  </div>
 
-    <!-- script  -->
-    <script src="home-script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <!-- Footer -->
+  <div id="footer">
+    <div class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-2">
+            <h5 class="fw-bold">Exclusive</h5>
+            <p class="mb-1">Subscribe</p>
+            <p class="mb-3">Get 10% off your first order</p>
+            <form class="d-flex border rounded">
+              <input type="email" class="form-control bg-dark text-white border-0" placeholder="Enter your email" />
+              <button type="submit" class="btn btn-dark border-0">
+                <i class="fa fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-3">
+            <h5 class="fw-bold">Support</h5>
+            <address class="mb-2">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</address>
+            <p class="mb-1">exclusive@gmail.com</p>
+            <p class="mb-0">+88015-88888-9999</p>
+          </div>
+
+          <div class="col-md-2">
+            <h5 class="fw-bold">Account</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">My Account</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Login / Register</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Cart</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Wishlist</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-2">
+            <h5 class="fw-bold">Quick Link</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Terms Of Use</a></li>
+              <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h5 class="fw-bold">Download App</h5>
+            <small class="mb-2 d-block">Save $3 with App New User Only</small>
+            <div class="d-flex align-items-center mb-3">
+              <img src="../../assets/Images/qrcode.png" alt="QR Code" class="img-fluid me-2" style="max-width: 80px" />
+              <div class="d-flex flex-column">
+                <img src="../../assets/Images/googleplay.png" alt="Google Play" class="img-fluid mb-2 w-75" />
+                <img src="../../assets/Images/apps.png" alt="App Store" class="img-fluid w-75" />
+              </div>
+            </div>
+            <div class="d-flex justify-content-evenly">
+              <a href="#" class="text-white fs-5"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-white fs-5"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white fs-5"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="border-secondary my-4" />
+        <p class="text-center text-secondary mb-0">&copy; Copyright Rimel 2022. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="edit-profile.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
-
-
-

@@ -1,143 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exclusive E-Commerce</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecommerce Website</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- main header  -->
+    <div id="header">
+      <!-- top header  -->
+      <div class="bg-dark text-light row py-2 text-center fs-6">
+        <p class="col-9 m-0 text-center fw-light">
+          Summer Sale For All Swim Suits And Free Express Delivery-OFF 50%!
 
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+          <a class="text-light fw-bold px-2"> ShopNow </a>
+        </p>
+        <span class="col-1"></span>
+        <span class="col-2">
+          <select name="lang" id="lang" class="bg-dark text-light">
+            <option value="eng">English</option>
+            <option value="guj">Gujrati</option>
+          </select>
+        </span>
+      </div>
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-</head>
-<body>
+      <!-- main header  -->
 
-  <!-- Header -->
-  <div id="header">
-    <!-- Top Promo Bar -->
-    <div class="bg-dark text-light text-center py-2 fs-6 d-flex justify-content-between align-items-center">
-      <p class="mb-0 fw-light flex-grow-1">
-        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-        <a href="#" class="text-light fw-bold ms-2">ShopNow</a>
-      </p>
-      <select id="lang" class="bg-dark text-light border-0">
-        <option value="eng">English</option>
-        <option value="guj">Gujarati</option>
-      </select>
-    </div>
+      <nav class="navbar navbar-expand-lg bg-transparent row border-bottom">
+        <div class="d-flex justify-content-between px-5">
+          <a class="navbar-brand col-1 fw-bold text-center" href="#"
+            >Exclusive</a
+          >
+          <button
+            class="navbar-toggler col-1"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse fw-bold d-flex justify-content-center col-3"
+            id="navbarSupportedContent"
+          >
+            <ul
+              class="navbar-nav d-flex justify-content-evenly w-100 aliit mb-2 mb-lg-0"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/components/index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/components/login/login.html"
+                  >Sign up
+                </a>
+              </li>
+            </ul>
+          </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom">
-      <div class="container-fluid d-flex justify-content-between align-items-center">
-        <a class="navbar-brand fw-bold" href="#">Exclusive</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <div class="col-4 d-flex justify-content-center">
+            <form class="d-flex me-3 col-7" role="search">
+              <input
+                class="form-control bg-secondary-subtle text-black"
+                type="search"
+                placeholder="What are you looking for ?"
+                aria-label="Search"
+              />
+              <button
+                class="btn rounded-3 bg-secondary-subtle text-black"
+                type="submit"
+              >
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              </button>
+            </form>
 
-        <div class="collapse navbar-collapse" id="navContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold">
-            <li class="nav-item"><a href="/components/starting.html" class="nav-link active">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="/components/login/login.html" class="nav-link">Sign Up</a></li>
-          </ul>
-        </div>
-
-        <!-- Search + Icons -->
-        <div class="d-flex align-items-center gap-3">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 bg-secondary-subtle text-dark" type="search" placeholder="What are you looking for?" />
-            <button class="btn bg-secondary-subtle text-dark" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-
-          <div class="d-flex gap-3">
-            <a href="/components/wishlist/wishlist-page.html" class="position-relative text-dark">
-              <i class="fa-solid fa-heart fs-5"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-count" style="font-size:0.6rem;">0</span>
-            </a>
-            <a href="/components/cart/cart.html" class="position-relative text-dark">
-              <i class="fa-solid fa-cart-shopping fs-5"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count" style="font-size:0.6rem;">0</span>
-            </a>
+            <!-- Wishlist and Cart Icons -->
+            <div
+              class="d-flex align-items-center gap-3 col-4 justify-content-center"
+            >
+              <a
+                href="/components/wishlist/wishlist-page.html"
+                class="text-dark text-decoration-none position-relative"
+              >
+                <i class="fa-solid fa-heart fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-count"
+                  style="font-size: 0.6rem"
+                >
+                  0
+                </span>
+              </a>
+              <a
+                href="/components/cart/cart.html"
+                class="text-dark text-decoration-none position-relative"
+              >
+                <i class="fa-solid fa-cart-shopping fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count"
+                  style="font-size: 0.6rem"
+                >
+                  0
+                </span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </div>
+      </nav>
+    </div>
+    <p></p>
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <!-- Carousel -->
-    <div id="carouselExample" class="carousel slide container" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active bg-black text-light">
-          <div class="row justify-content-center">
-            <div class="col-4 position-relative">
-              <img src="../../assets/Images/crousel-img.png" class="d-block w-100" alt="Promo" />
-              <div class="position-absolute top-0 start-0 m-4">
-                <p><i class="fa-brands fa-apple fs-1 fw-bold"></i> <span class="fs-5">iPhone 14 Series</span></p>
-                <h5 class="fs-1 fw-bold">Up to 10% <br> Off Voucher</h5>
-                <a href="#" class="text-light text-decoration-none d-flex align-items-center">
-                  <span class="border-bottom fw-bold me-1">Shop now</span><i class="fa fa-arrow-right"></i>
-                </a>
+    <!-- main body  -->
+    <div id="main-content">
+      <!-- crousel -->
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide container"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-black">
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <img
+                  src="../../assets/Images/crousel-img.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="position-absolute top-0 start-0 m-5 text-light">
+                  <p>
+                    <i class="fa-brands fa-apple fw-bolder fs-1"></i
+                    ><span class="fs-5">iPhone 14 Series</span>
+                  </p>
+                  <h5 class="fs-1 fw-bold">
+                    Up to 10%
+                    <p></p>
+                    off Voucher
+                  </h5>
+                  <p></p>
+                  <a
+                    href="#"
+                    class="text-decoration-none text-light d-flex align-items-center"
+                    ><span
+                      class="border-bottom text-decoration-none text-light me-1 fw-bold"
+                      >Shop now</span
+                    ><i class="fa fa-arrow-right" aria-hidden="true"></i
+                  ></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Products Section -->
-    <section id="product-container-home" class="container my-5 text-center">
-      <div class="mb-4">
-        <span class="border-end border-5 bg-danger p-2 me-2"></span>
-        <span class="fw-semibold">Our Products</span>
-        <h3 class="fw-bold my-2">Explore Our Products</h3>
-      </div>
-      <div class="row" id="product-list"></div>
-      <button class="btn btn-danger py-3 my-4">View All Products</button>
-      <div class="row my-5" id="features"></div>
-    </section>
-  </main>
+      <!-- our Products  -->
 
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="bg-dark text-white py-3">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-md-2">
-            <h5 class="fw-bold">Exclusive</h5>
-            <p>Subscribe</p>
-            <p>Get 10% off your first order</p>
-            <form class="d-flex border rounded">
-              <input type="email" class="form-control bg-dark text-white border-0" placeholder="Enter your email" />
-              <button type="submit" class="btn btn-dark border-0"><i class="fa fa-arrow-right"></i></button>
-            </form>
+      <div id="product-container-home" class="container my-5">
+        <div
+          id="our-products"
+          class="d-flex flex-column justify-content-center align-items-center my-3"
+        >
+          <div class="me-auto">
+            <span class="border-end border-5 bg-danger p-2 me-2"></span>
+            <span class="fw-semibold">Our Products</span>
+            <p></p>
+            <p class="fw-bold fs-3">Explore Our Products</p>
           </div>
-          <!-- Support / Account / Quick Links / Social Icons same as before -->
-          <!-- Skipping unchanged sections for brevity -->
+
+          <div class="my-5">
+            <div class="row" id="product-list"></div>
+          </div>
+
+          <button class="btn btn-danger py-3">View All Product</button>
+
+          <div class="row text-center my-5" id="features"></div>
         </div>
       </div>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="../../assets/js/data.js"></script>
-  <script src="home-script.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- footer -->
+    <div id="footer">
+      <!-- footer  -->
+
+      <div class="bg-dark text-white py-3">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-md-2">
+              <h5 class="fw-bold">Exclusive</h5>
+              <p class="mb-1">Subscribe</p>
+              <p class="mb-3">Get 10% off your first order</p>
+              <form class="d-flex border rounded">
+                <input
+                  type="email"
+                  class="form-control bg-dark text-white border-0"
+                  placeholder="Enter your email"
+                />
+                <button type="submit" class="btn btn-dark border-0">
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="fw-bold">Support</h5>
+              <p class="mb-2">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <p class="mb-1">exclusive@gmail.com</p>
+              <p class="mb-0">+88015-88888-9999</p>
+            </div>
+
+            <div class="col-md-2">
+              <h5 class="fw-bold">Account</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#" class="text-white text-decoration-none"
+                    >My Account</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none"
+                    >Login / Register</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none">Cart</a>
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none"
+                    >Wishlist</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none">Shop</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-2">
+              <h5 class="fw-bold">Quick Link</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#" class="text-white text-decoration-none"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none"
+                    >Terms Of Use</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none">FAQ</a>
+                </li>
+                <li>
+                  <a href="#" class="text-white text-decoration-none"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5 class="fw-bold">Download App</h5>
+              <small class="mb-2">Save $3 with App New User Only</small>
+              <div class="d-flex align-items-center mb-3">
+                <div>
+                  <img
+                    src="../../assets/Images/qrcode.png"
+                    alt="QR Code"
+                    class="img-fluid me-2"
+                    style="max-width: 80px"
+                  />
+                </div>
+                <div class="d-flex flex-column">
+                  <img
+                    src="../../assets/Images/googleplay.png"
+                    alt="Google Play"
+                    class="img-fluid mb-2 h-auto w-75"
+                  />
+                  <img
+                    src="../../assets/Images/appstore.png"
+                    alt="App Store"
+                    class="img-fluid h-auto w-75"
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-evenly">
+                <a href="#" class="text-white fs-5"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="text-white fs-5"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="text-white fs-5"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="text-white fs-5"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-bottom border-secondary my-4"></div>
+
+          <p class="text-center text-secondary mb-0">
+            &copy; Copyright Rimel 2022. All rights reserved
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- script  -->
+    <script src="../../assets/js/products.js"></script>
+    <script src="home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

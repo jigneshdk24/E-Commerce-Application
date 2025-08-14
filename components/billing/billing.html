@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ecommerce Website</title>
+    <title>Billing Details - Exclusive</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,13 +14,12 @@
     />
   </head>
   <body>
-    <!-- main header  -->
+    <!-- Header -->
     <div id="header">
       <!-- top header  -->
       <div class="bg-dark text-light row py-2 text-center fs-6">
         <p class="col-9 m-0 text-center fw-light">
           Summer Sale For All Swim Suits And Free Express Delivery-OFF 50%!
-
           <a class="text-light fw-bold px-2"> ShopNow </a>
         </p>
         <span class="col-1"></span>
@@ -33,12 +32,9 @@
       </div>
 
       <!-- main header  -->
-
       <nav class="navbar navbar-expand-lg bg-transparent row border-bottom">
         <div class="d-flex justify-content-between px-5">
-          <a class="navbar-brand col-1 fw-bold text-center" href="#"
-            >Exclusive</a
-          >
+          <a class="navbar-brand col-1 fw-bold text-center" href="../home/home.html">Exclusive</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -59,30 +55,16 @@
               class="navbar-nav d-flex justify-content-evenly w-100 aliit mb-2 mb-lg-0"
             >
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/components/starting.html"
-                  >Home</a
-                >
+                <a class="nav-link active" aria-current="page" href="../home/home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Contact</a
-                >
+                <a class="nav-link active" aria-current="page" href="#">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >About</a
-                >
+                <a class="nav-link active" aria-current="page" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/components/login/login.html"
-                  >Sign up
-                </a>
+                <a class="nav-link active" aria-current="page" href="../login/login.html">Sign up</a>
               </li>
             </ul>
           </div>
@@ -104,184 +86,199 @@
               </button>
             </form>
           </div>
+
+          <!-- Wishlist and Cart Icons -->
+          <div class="d-flex align-items-center gap-3 col-2 justify-content-center">
+            <a href="../wishlist/wishlist-page.html" class="text-dark text-decoration-none position-relative">
+              <i class="fa-solid fa-heart fs-5"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-count" style="font-size: 0.6rem">
+                0
+              </span>
+            </a>
+            <a href="../cart/cart.html" class="text-dark text-decoration-none position-relative">
+              <i class="fa-solid fa-cart-shopping fs-5"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count" style="font-size: 0.6rem">
+                0
+              </span>
+            </a>
+          </div>
+
+          <!-- Profile Icon -->
+          <div class="dropdown ms-3">
+            <a href="#" class="text-dark dropdown-toggle text-decoration-none" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Profile">
+              <i class="fa-solid fa-user fs-5"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="../edit-profile/edit-profile.html">
+                <i class="fa-solid fa-user-edit me-2"></i>Edit Profile
+              </a></li>
+              <li><a class="dropdown-item" href="#" onclick="showOrders()">
+                <i class="fa-solid fa-shopping-bag me-2"></i>My Orders
+              </a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="logout()" id="logout-link" style="display: none;">
+                <i class="fa-solid fa-sign-out-alt me-2"></i>Logout
+              </a></li>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>
 
-    <!-- main body  -->
-    <div id="main-content" class="py-5">
-      <div class="container">
-        <h1 class="mb-4">Billing Details</h1>
+    <!-- Breadcrumbs -->
+    <div class="container mt-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../home/home.html">Account</a></li>
+          <li class="breadcrumb-item"><a href="#">My Account</a></li>
+          <li class="breadcrumb-item"><a href="#">Product</a></li>
+          <li class="breadcrumb-item"><a href="../cart/cart.html">View Cart</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+      </nav>
+    </div>
 
-        <div class="row">
-          <div class="col-6">
-            <form>
-              <div class="row g-3">
-                <div class="col-md-12">
-                  <label for="first_name" class="form-label">First Name</label>
-                  <input
-                    type="text"
-                    id="first_name"
-                    name="first_name"
-                    class="form-control"
-                  />
+    <!-- Main Content -->
+    <div class="container my-5">
+      <div class="row">
+        <!-- Left Column - Billing Details -->
+        <div class="col-lg-8">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">Billing Details</h4>
+              
+              <form id="billing-form">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="firstName" class="form-label fw-semibold">First Name*</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lastName" class="form-label fw-semibold">Last Name*</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
                 </div>
-
-                <div class="col-md-12">
-                  <label for="company_name" class="form-label"
-                    >Company Name</label
-                  >
-                  <input
-                    type="text"
-                    id="company_name"
-                    name="company_name"
-                    class="form-control"
-                  />
+                
+                <div class="mb-3">
+                  <label for="companyName" class="form-label fw-semibold">Company Name</label>
+                  <input type="text" class="form-control" id="companyName">
                 </div>
-
-                <div class="col-md-12">
-                  <label for="street_task" class="form-label"
-                    >Street Address</label
-                  >
-                  <input
-                    type="text"
-                    id="street_task"
-                    name="street_task"
-                    class="form-control"
-                  />
+                
+                <div class="mb-3">
+                  <label for="streetAddress" class="form-label fw-semibold">Street Address*</label>
+                  <input type="text" class="form-control" id="streetAddress" required>
                 </div>
-
-                <div class="col-md-12">
-                  <label for="aprt_floor" class="form-label"
-                    >Apartment, floor, etc. (optional)</label
-                  >
-                  <input
-                    type="text"
-                    id="aprt_floor"
-                    name="aprt_floor"
-                    class="form-control"
-                  />
+                
+                <div class="mb-3">
+                  <label for="apartment" class="form-label fw-semibold">Apartment, floor, etc. (optional)</label>
+                  <input type="text" class="form-control" id="apartment">
                 </div>
-
-                <div class="col-md-12">
-                  <label for="country" class="form-label">country</label>
-                  <select name="country" id="country">
-                    <option value="ind">India</option>
-                  </select>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="townCity" class="form-label fw-semibold">Town/City*</label>
+                    <input type="text" class="form-control" id="townCity" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="postalCode" class="form-label fw-semibold">Postal Code*</label>
+                    <input type="text" class="form-control" id="postalCode" required>
+                  </div>
                 </div>
-
-                <div class="col-md-12">
-                  <label for="state" class="form-label">state</label>
-                  <select name="state" id="state">
-                    <option value="guj">Gujrat</option>
-                    <option value="uk">Uttarakhand</option>
-                    <option value="del">Delhi</option>
-                    <option value="raj">Rajasthan</option>
-                  </select>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="phoneNumber" class="form-label fw-semibold">Phone Number*</label>
+                    <input type="tel" class="form-control" id="phoneNumber" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="emailAddress" class="form-label fw-semibold">Email Address*</label>
+                    <input type="email" class="form-control" id="emailAddress" required>
+                  </div>
                 </div>
-
-                <div class="col-md-12">
-                  <label for="city" class="form-label">Town/City</label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    class="form-control"
-                  />
+                
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="saveInfo" checked>
+                  <label class="form-check-label" for="saveInfo">
+                    Save this information for faster check-out next time
+                  </label>
                 </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
-                <div class="col-md-12">
-                  <label for="phone_number" class="form-label"
-                    >Phone Number</label
-                  >
-                  <input
-                    type="tel"
-                    id="phone_number"
-                    name="phone_number"
-                    class="form-control"
-                  />
+        <!-- Right Column - Order Summary & Payment -->
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <h5 class="fw-bold mb-4">Order Summary</h5>
+              
+              <!-- Product List -->
+              <div id="order-products" class="mb-4">
+                <!-- Products will be loaded dynamically -->
+              </div>
+              
+              <!-- Order Totals -->
+              <div class="border-top pt-3 mb-4">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Subtotal:</span>
+                  <span id="order-subtotal">$0</span>
                 </div>
-
-                <div class="col-md-12">
-                  <label for="email_address" class="form-label"
-                    >Email Address</label
-                  >
-                  <input
-                    type="email"
-                    id="email_address"
-                    name="email_address"
-                    class="form-control"
-                  />
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Shipping:</span>
+                  <span class="text-success">Free</span>
                 </div>
-
-                <div class="col-md-12">
-                  <input type="checkbox" name="save_info" id="save_info" />
-                  <label for="save_info" class="form-label">
-                    Save this information for faster checkout next time
+                <div class="d-flex justify-content-between mb-2" id="discount-row" style="display: none;">
+                  <span class="text-success">Discount (30%):</span>
+                  <span class="text-success" id="order-discount">-$0</span>
+                </div>
+                <div class="d-flex justify-content-between fw-bold fs-5">
+                  <span>Total:</span>
+                  <span id="order-total">$0</span>
+                </div>
+              </div>
+              
+              <!-- Payment Options -->
+              <div class="mb-4">
+                <h6 class="fw-bold mb-3">Payment Method</h6>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="bankPayment" value="bank">
+                  <label class="form-check-label" for="bankPayment">
+                    Bank
+                  </label>
+                  <div class="mt-2">
+                    <img src="../../assets/Images/banks-photo.png" alt="Payment Methods" class="img-fluid" style="max-height: 30px;">
+                  </div>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" value="cod" checked>
+                  <label class="form-check-label" for="cashOnDelivery">
+                    Cash on delivery
                   </label>
                 </div>
               </div>
-            </form>
-          </div>
-
-          <!-- right side  -->
-          <div class="col-6" id="payment-details">
-            <h4 class="mb-3">Order Summary</h4>
-            <table id="payment-table" class="table table-borderless">
-              <tbody></tbody>
-            </table>
-
-            <div class="row">
-              <div class="col-6">
-                <div>
-                  <input type="radio" name="payment_type" id="bank" />
-                  <label for="bank">Bank:</label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    name="payment_type"
-                    id="cash_on_delivery"
-                  />
-                  <label for="cash_on_delivery">Cash on Delivery:</label>
+              
+              <!-- Coupon Section -->
+              <div class="mb-4">
+                <label for="checkout-coupon" class="form-label fw-semibold">Coupon Code</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="checkout-coupon" placeholder="Enter coupon code">
+                  <button class="btn btn-danger" type="button" onclick="applyCoupon()">Apply Coupon</button>
                 </div>
               </div>
-              <div class="col-6">
-                <img
-                  src="../../assets/Images/banks-photo.png"
-                  alt=""
-                  class="img-fluid"
-                />
-              </div>
-            </div>
-
-            <p></p>
-
-            <div class="mb-3 mb-md-0">
-              <form class="d-flex gap-2">
-                <input
-                  type="text"
-                  name="coupon"
-                  id="coupon"
-                  placeholder="Coupon Code"
-                />
-                <button type="submit" class="btn btn-danger rounded-0 px-2">
-                  Apply Coupon
-                </button>
-              </form>
-
-              <p></p>
-              <button class="btn btn-danger py-2 rounded-1">Place Order</button>
+              
+              <!-- Place Order Button -->
+              <button class="btn btn-danger w-100 py-3 fw-bold" onclick="placeOrder()">
+                Place Order
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- footer -->
+    <!-- Footer -->
     <div id="footer">
-      <!-- footer  -->
-
       <div class="bg-dark text-white py-3">
         <div class="container">
           <div class="row gy-4">
@@ -290,20 +287,16 @@
               <p class="mb-1">Subscribe</p>
               <p class="mb-3">Get 10% off your first order</p>
               <form class="d-flex border rounded">
-                <input
-                  type="email"
-                  class="form-control bg-dark text-white border-0"
-                  placeholder="Enter your email"
-                />
+                <input type="email" class="form-control bg-dark text-white border-0" placeholder="Enter your email" />
                 <button type="submit" class="btn btn-dark border-0">
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  <i class="fa fa-arrow-right"></i>
                 </button>
               </form>
             </div>
 
             <div class="col-md-3">
               <h5 class="fw-bold">Support</h5>
-              <p class="mb-2">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <address class="mb-2">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</address>
               <p class="mb-1">exclusive@gmail.com</p>
               <p class="mb-0">+88015-88888-9999</p>
             </div>
@@ -311,108 +304,52 @@
             <div class="col-md-2">
               <h5 class="fw-bold">Account</h5>
               <ul class="list-unstyled">
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >My Account</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Login / Register</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none">Cart</a>
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Wishlist</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none">Shop</a>
-                </li>
+                <li><a href="#" class="text-white text-decoration-none">My Account</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Login / Register</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Cart</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Wishlist</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
               </ul>
             </div>
 
             <div class="col-md-2">
               <h5 class="fw-bold">Quick Link</h5>
               <ul class="list-unstyled">
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Privacy Policy</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Terms Of Use</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none">FAQ</a>
-                </li>
-                <li>
-                  <a href="#" class="text-white text-decoration-none"
-                    >Contact</a
-                  >
-                </li>
+                <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Terms Of Use</a></li>
+                <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
               </ul>
             </div>
+
             <div class="col-md-3">
               <h5 class="fw-bold">Download App</h5>
-              <small class="mb-2">Save $3 with App New User Only</small>
+              <small class="mb-2 d-block">Save $3 with App New User Only</small>
               <div class="d-flex align-items-center mb-3">
-                <div>
-                  <img
-                    src="../../assets/Images/qrcode.png"
-                    alt="QR Code"
-                    class="img-fluid me-2"
-                    style="max-width: 80px"
-                  />
-                </div>
+                <img src="../../assets/Images/qrcode.png" alt="QR Code" class="img-fluid me-2" style="max-width: 80px" />
                 <div class="d-flex flex-column">
-                  <img
-                    src="../../assets/Images/googleplay.png"
-                    alt="Google Play"
-                    class="img-fluid mb-2 h-auto w-75"
-                  />
-                  <img
-                    src="../../assets/Images/appstore.png"
-                    alt="App Store"
-                    class="img-fluid h-auto w-75"
-                  />
+                  <img src="../../assets/Images/googleplay.png" alt="Google Play" class="img-fluid mb-2 w-75" />
+                  <img src="../../assets/Images/apps.png" alt="App Store" class="img-fluid w-75" />
                 </div>
               </div>
               <div class="d-flex justify-content-evenly">
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#" class="text-white fs-5"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
+                <a href="#" class="text-white fs-5"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fab fa-linkedin-in"></i></a>
               </div>
             </div>
           </div>
-
-          <div class="border-bottom border-secondary my-4"></div>
-
-          <p class="text-center text-secondary mb-0">
-            &copy; Copyright Rimel 2022. All rights reserved
-          </p>
+          <hr class="border-secondary my-4" />
+          <p class="text-center text-secondary mb-0">&copy; Copyright Rimel 2022. All rights reserved</p>
         </div>
       </div>
     </div>
 
-    <!-- script  -->
+    <!-- Scripts -->
+    <script src="../../assets/js/products.js"></script>
     <script src="billing.js"></script>
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
-v>

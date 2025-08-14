@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -169,10 +169,20 @@
                 id="coupon"
                 placeholder="Coupon Code"
               />
+              <input
+                type="month"
+                id="coupon-period"
+                class="form-control"
+                style="max-width: 180px;"
+                title="Select current month & year for code"
+              />
               <button type="submit" class="btn btn-danger rounded-0">
                 Apply Coupon
               </button>
             </form>
+            <div id="coupon-feedback" class="mt-2" style="display: none;">
+              <small class="text-muted">Current coupon code: <code id="current-coupon-code"></code></small>
+            </div>
           </div>
 
           <!-- Cart Total Table -->
@@ -190,6 +200,10 @@
                       <td>Shipping</td>
                       <td class="text-end">Free</td>
                     </tr>
+                    <tr class="border-bottom" id="discount-row" style="display: none;">
+                      <td class="text-success">Discount (30%)</td>
+                      <td class="text-end text-success" id="discount-amount">-$0</td>
+                    </tr>
                     <tr class="fw-bold">
                       <td>Total</td>
                       <td class="text-end" id="cart-total">$0</td>
@@ -202,6 +216,9 @@
                 >
                   Proceed to Checkout
                 </button>
+                <div id="coupon-status" class="mt-2 text-center" style="display: none;">
+                  <span class="badge bg-success">✓ Coupon Applied - 30% OFF!</span>
+                </div>
               </div>
             </div>
           </div>
