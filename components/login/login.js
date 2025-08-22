@@ -45,7 +45,7 @@ document.addEventListener("submit", async function (event) {
       localStorage.setItem("isLoggedIn", "true");
 
       // Redirect to home page
-      location.href = "../home/home.html";
+      location.replace("../home/home.html");
     } else {
       const errorMsg = result?.message || "Login failed!";
       alert(errorMsg);

@@ -88,3 +88,95 @@ const loadFooter = async () => {
 
 loadFooter();
 
+
+// Auth utilities
+function isLoggedIn() {
+	try {
+		return localStorage.getItem("isLoggedIn") === "true" && !!localStorage.getItem("authToken");
+	} catch (e) {
+		return false;
+	}
+}
+
+function logout() {
+	try {
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("currentUser");
+		localStorage.removeItem("isLoggedIn");
+		// Also clear optional user data used by profile/billing
+		localStorage.removeItem("userProfile");
+		localStorage.removeItem("userInfo");
+	} catch (e) {}
+	// Use replace to avoid going back to an authenticated history entry
+	const base = getComponentsBasePath();
+	location.replace(`${base}/login/login.html`);
+}
+
+function updateHeaderAuthUI() {
+	const authNavItem = document.querySelector('#header #auth-nav-item');
+	const authLink = document.querySelector('#header #auth-link');
+	const logoutLink = document.querySelector('#header #logout-link');
+	if (isLoggedIn()) {
+		if (authLink) {
+			authLink.textContent = "My Account";
+			authLink.href = `${getComponentsBasePath()}/edit-profile/edit-profile.html`;
+		}
+		if (logoutLink) logoutLink.style.display = "block";
+	} else {
+		if (authLink) {
+			authLink.textContent = "Sign up";
+			authLink.href = `${getComponentsBasePath()}/login/login.html`;
+		}
+		if (logoutLink) logoutLink.style.display = "none";
+	}
+}
+
+// Require auth for protected pages
+function requireAuth(options) {
+	const { redirectTo = `${getComponentsBasePath()}/login/login.html` } = options || {};
+	if (!isLoggedIn()) {
+		location.replace(redirectTo);
+		return false;
+	}
+	return true;
+}
+
+// Prevent showing stale authenticated pages from bfcache after logout
+window.addEventListener("pageshow", function (event) {
+	// If page was restored from bfcache, re-validate session
+	if (event.persisted) {
+		if (!isLoggedIn()) {
+			// Replace so back button won't return to this page
+			location.replace(`${getComponentsBasePath()}/login/login.html`);
+			return;
+		}
+	}
+	// Always update header auth UI on view
+	updateHeaderAuthUI();
+});
+
+// Keep UI in sync when storage changes in another tab or same tab
+window.addEventListener("storage", function (e) {
+	if (e.key === "isLoggedIn" || e.key === "authToken" || e.key === null) {
+		updateHeaderAuthUI();
+		if (!isLoggedIn()) {
+			location.replace(`${getComponentsBasePath()}/login/login.html`);
+		}
+	}
+});
+
+// Expose helpers globally for inline onclick handlers in HTML
+window.logout = logout;
+window.requireAuth = requireAuth;
+window.isLoggedIn = isLoggedIn;
+
+// After header loads, also toggle auth UI
+const enhanceHeaderAfterLoad = async () => {
+	try {
+		// wait a tick for header HTML injection
+		setTimeout(updateHeaderAuthUI, 0);
+	} catch (e) {}
+};
+
+enhanceHeaderAfterLoad();
+
