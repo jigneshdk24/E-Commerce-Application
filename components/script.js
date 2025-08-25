@@ -88,3 +88,47 @@ const loadFooter = async () => {
 
 loadFooter();
 
+
+// Lightweight toast utility
+
+function ensureToastContainer() {
+	let container = document.getElementById("app-toasts");
+	if (!container) {
+		container = document.createElement("div");
+		container.id = "app-toasts";
+		container.style.position = "fixed";
+		container.style.top = "1rem";
+		container.style.right = "1rem";
+		container.style.zIndex = "1080"; // above header
+		document.body.appendChild(container);
+	}
+	return container;
+}
+
+function showToast(message, options) {
+	const opts = Object.assign({ type: "success", timeout: 2000 }, options);
+	const container = ensureToastContainer();
+	const toast = document.createElement("div");
+	toast.className = `toast align-items-center text-bg-${opts.type} border-0 show`;
+	toast.role = "alert";
+	toast.ariaLive = "assertive";
+	toast.ariaAtomic = "true";
+	toast.style.marginBottom = "0.5rem";
+	toast.innerHTML = `
+		<div class="d-flex">
+			<div class="toast-body">${message}</div>
+			<button type="button" class="btn-close btn-close-white me-2 m-auto" aria-label="Close"></button>
+		</div>`;
+
+	toast.querySelector(".btn-close").addEventListener("click", () => {
+		container.removeChild(toast);
+	});
+
+	container.appendChild(toast);
+	setTimeout(() => {
+		if (toast.parentElement === container) container.removeChild(toast);
+	}, opts.timeout);
+}
+
+window.showToast = showToast;
+

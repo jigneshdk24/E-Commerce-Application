@@ -79,6 +79,11 @@ function showProducts() {
       else cart.push({ ...product, qty: 1 });
       localStorage.setItem("cart", JSON.stringify(cart));
       updateIcons();
+
+      // toast
+      if (window.showToast) {
+        showToast(`${product.title} added to cart`, { type: 'success' });
+      }
     });
   });
 }
@@ -128,6 +133,10 @@ function toggleWishlistItem(id) {
     list.push(id);
     localStorage.setItem("wishlist", JSON.stringify(list));
     icon.className = "fa-solid fa-heart text-danger";
+    if (window.showToast) {
+      const product = PRODUCTS_DATA.find(p => p.id === id);
+      showToast(`${product ? product.title : 'Item'} added to wishlist`, { type: 'success' });
+    }
   }
 
   updateIcons();

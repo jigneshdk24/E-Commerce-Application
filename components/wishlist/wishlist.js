@@ -132,16 +132,11 @@ function addToWishlist(productId) {
     displayWishlist();
     updateHeaderCount();
     
-    // Show success message
-    const btn = event.target.closest('button');
-    const originalIcon = btn.innerHTML;
-    btn.innerHTML = '<i class="fa-solid fa-heart text-danger"></i>';
-    btn.classList.replace('btn-outline-secondary', 'btn-danger');
-    
-    setTimeout(() => {
-      btn.innerHTML = originalIcon;
-      btn.classList.replace('btn-danger', 'btn-outline-secondary');
-    }, 1500);
+    // Show success toast
+    if (window.showToast) {
+      const product = PRODUCTS_DATA.find((p) => p.id === productId);
+      showToast(`${product ? product.title : 'Item'} added to wishlist`, { type: 'success' });
+    }
   }
 }
 
@@ -167,23 +162,18 @@ function addToCart(productId) {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
   
-  // Show success message
-  const btn = event.target.closest('button');
-  const originalText = btn.innerHTML;
-  btn.innerHTML = '<i class="fa-solid fa-check me-2"></i>Added!';
-  btn.classList.replace('btn-dark', 'btn-success');
-  
-  setTimeout(() => {
-    btn.innerHTML = originalText;
-    btn.classList.replace('btn-success', 'btn-dark');
-  }, 1500);
+  // Show success toast
+  if (window.showToast) {
+    const product = PRODUCTS_DATA.find((p) => p.id === productId);
+    showToast(`${product ? product.title : 'Item'} added to cart`, { type: 'success' });
+  }
 }
 
 // Move all wishlist items to cart
 function moveAllToCart() {
   const wishlistIds = fetchWishlist();
   if (wishlistIds.length === 0) {
-    alert('Your wishlist is empty!');
+    if (window.showToast) showToast('Your wishlist is empty', { type: 'warning' });
     return;
   }
   
@@ -205,8 +195,8 @@ function moveAllToCart() {
   // Clear wishlist
   saveWishlist([]);
   
-  // Show success message
-  alert(`Moved ${wishlistIds.length} items to cart!`);
+  // Show success toast
+  if (window.showToast) showToast(`Moved ${wishlistIds.length} items to cart`, { type: 'success' });
   
   // Refresh display
   displayWishlist();
