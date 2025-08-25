@@ -114,6 +114,16 @@ function showToast(message, options) {
 	toast.ariaLive = "assertive";
 	toast.ariaAtomic = "true";
 	toast.style.marginBottom = "0.5rem";
+	toast.style.minWidth = "240px";
+	toast.style.borderRadius = "0.5rem";
+	toast.style.boxShadow = "0 0.5rem 1rem rgba(0,0,0,0.15)";
+	// Fallback colors if Bootstrap classes are unavailable
+	const bgByType = { success: "#198754", danger: "#dc3545", warning: "#ffc107", info: "#0dcaf0" };
+	const needsFallback = getComputedStyle(toast).backgroundColor === "rgba(0, 0, 0, 0)";
+	if (needsFallback) {
+		toast.style.backgroundColor = bgByType[opts.type] || "#198754";
+		toast.style.color = opts.type === "warning" ? "#000" : "#fff";
+	}
 	toast.innerHTML = `
 		<div class="d-flex">
 			<div class="toast-body">${message}</div>
