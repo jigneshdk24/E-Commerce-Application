@@ -308,11 +308,16 @@ function placeOrder() {
   localStorage.removeItem("cart");
   localStorage.removeItem("appliedCoupon");
   
-  // Show success message
-  alert(`Order placed successfully! Order ID: ${orderId}`);
-  
-  // Redirect to home page
-  window.location.href = "../home/home.html";
+  // Show success toast and redirect shortly after
+  if (window.showToast) {
+    showToast(`Order placed! ID: ${orderId}`, { type: 'success', timeout: 1800 });
+    setTimeout(() => {
+      window.location.href = "../home/home.html";
+    }, 1600);
+  } else {
+    alert(`Order placed successfully! Order ID: ${orderId}`);
+    window.location.href = "../home/home.html";
+  }
 }
 
 // Update header counts
