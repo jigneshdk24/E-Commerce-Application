@@ -5,15 +5,27 @@ document.addEventListener("submit", async function (event) {
 
   const usernameField = form.querySelector("#userEmail");
   const passwordField = form.querySelector("#userPassword");
+  const errorBox = form.querySelector("#login-error");
   if (!usernameField || !passwordField) return;
 
   event.preventDefault();
 
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  // Reset error state
+  if (errorBox) {
+    errorBox.style.display = "none";
+    errorBox.textContent = "";
+  }
+
   // Basic validation
   if (!usernameField.value.trim() || !passwordField.value.trim()) {
-    alert("Please enter username and password");
+    if (errorBox) {
+      errorBox.textContent = "Please enter username and password";
+      errorBox.style.display = "block";
+    } else {
+      alert("Please enter username and password");
+    }
     return;
   }
 
@@ -40,20 +52,31 @@ document.addEventListener("submit", async function (event) {
 
     if (response.ok) {
       // Save user session
-      localStorage.setItem("authToken", result.accessToken || "");
+      // dummyjson returns `token` for auth
+      localStorage.setItem("authToken", result.token || result.accessToken || "");
       localStorage.setItem("currentUser", JSON.stringify(result));
       localStorage.setItem("isLoggedIn", "true");
 
       // Redirect to home page
       location.href = "../home/home.html";
     } else {
-      const errorMsg = result?.message || "Login failed!";
-      alert(errorMsg);
+      const errorMsg = result?.message || result?.error || "Invalid username or password";
+      if (errorBox) {
+        errorBox.textContent = errorMsg;
+        errorBox.style.display = "block";
+      } else {
+        alert(errorMsg);
+      }
       console.warn("Login failed:", errorMsg);
     }
   } catch (error) {
     console.error("Network error:", error);
-    alert("Network error");
+    if (errorBox) {
+      errorBox.textContent = "Network error. Please try again.";
+      errorBox.style.display = "block";
+    } else {
+      alert("Network error");
+    }
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;
